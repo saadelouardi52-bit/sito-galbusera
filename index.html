@@ -1,177 +1,327 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galbusera - La Bontà è una Tradizione di Famiglia</title>
-    <style>
-        /* Reset e Stili Generali */
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Helvetica Neue', Arial, sans-serif; }
-        body { background-color: #fdfaf6; color: #333; line-height: 1.6; }
-        
-        /* Navigazione */
-        header { background: #ffffff; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
-        .logo { font-weight: bold; font-size: 24px; color: #c66c00; letter-spacing: 2px; }
-        nav a { margin: 0 15px; text-decoration: none; color: #555; font-weight: 500; font-size: 14px; text-transform: uppercase; transition: color 0.3s; }
-        nav a:hover { color: #c66c00; }
-        .btn-header { background: #c66c00; color: white; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-weight: bold; font-size: 14px; transition: background 0.3s; }
-        .btn-header:hover { background: #a05500; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galbusera - Tradizione e Benessere</title>
 
-        /* Sezione Hero */
-        .hero { padding: 100px 5%; text-align: center; background: linear-gradient(rgba(253,250,246,0.8), rgba(253,250,246,0.9)), url('https://unsplash.com') no-repeat center/cover; border-bottom: 1px solid #f0e6d6; }
-        .hero p { font-size: 14px; letter-spacing: 3px; color: #888; font-weight: bold; margin-bottom: 10px; }
-        .hero h1 { font-size: 48px; color: #222; margin-bottom: 20px; font-weight: 700; }
-        .hero .sub { font-size: 18px; color: #666; max-width: 600px; margin: 0 auto 30px; }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        /* Contenitore Sezioni */
-        .section { padding: 60px 5%; text-align: center; }
-        .section h2 { font-size: 32px; color: #222; margin-bottom: 40px; position: relative; padding-bottom: 10px; }
-        .section h2::after { content: ''; width: 50px; height: 3px; background: #c66c00; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
 
-        /* Catalogo Prodotti con Filtri */
-        .filter-buttons { margin-bottom: 30px; }
-        .filter-btn { background: white; border: 1px solid #c66c00; color: #c66c00; padding: 8px 18px; margin: 5px; border-radius: 20px; cursor: pointer; font-weight: bold; transition: all 0.3s; }
-        .filter-btn.active, .filter-btn:hover { background: #c66c00; color: white; }
-        
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
-        .product-card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 1px solid #eee; transition: transform 0.3s; }
-        .product-card:hover { transform: translateY(-5px); }
-        .product-img { width: 100%; height: 180px; background: #f7f7f7; border-radius: 8px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; font-size: 40px; }
-        .product-card h3 { font-size: 18px; margin-bottom: 10px; color: #333; }
-        .product-card p { font-size: 14px; color: #777; }
+body{
+    background:#f8f7f3;
+    color:#333;
+    line-height:1.6;
+}
 
-        /* Form di Contatto */
-        .contact-container { max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); text-align: left; }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; font-size: 14px; color: #555; }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 15px; background: #fafafa; }
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: #c66c00; outline: none; background: white; }
-        .btn-submit { background: #c66c00; color: white; border: none; padding: 12px 24px; border-radius: 6px; font-weight: bold; cursor: pointer; width: 100%; font-size: 16px; transition: background 0.3s; }
-        .btn-submit:hover { background: #a05500; }
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:rgba(255,255,255,0.95);
+    backdrop-filter:blur(10px);
+    box-shadow:0 2px 15px rgba(0,0,0,0.08);
+    z-index:1000;
+}
 
-        /* Footer */
-        footer { background: #333; color: #aaa; padding: 30px 5%; text-align: center; font-size: 14px; border-top: 3px solid #c66c00; }
-        footer p { margin-bottom: 10px; }
-    </style>
+nav{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    color:#2f7d32;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#333;
+    font-weight:500;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#2f7d32;
+}
+
+.hero{
+    height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),
+    url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1600&q=80');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+    padding:20px;
+}
+
+.hero-content h1{
+    font-size:4rem;
+    margin-bottom:20px;
+}
+
+.hero-content p{
+    font-size:1.3rem;
+    max-width:700px;
+    margin:auto;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:15px 35px;
+    background:#2f7d32;
+    color:white;
+    text-decoration:none;
+    border-radius:40px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#256628;
+    transform:translateY(-3px);
+}
+
+.section{
+    max-width:1200px;
+    margin:auto;
+    padding:100px 20px;
+}
+
+.section-title{
+    text-align:center;
+    font-size:2.5rem;
+    margin-bottom:60px;
+    color:#2f7d32;
+}
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+
+.about img{
+    width:100%;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:25px;
+}
+
+.card-content h3{
+    color:#2f7d32;
+    margin-bottom:10px;
+}
+
+.stats{
+    background:#2f7d32;
+    color:white;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:40px;
+    text-align:center;
+}
+
+.stat h2{
+    font-size:3rem;
+}
+
+footer{
+    background:#1f1f1f;
+    color:white;
+    text-align:center;
+    padding:40px 20px;
+}
+
+@media(max-width:768px){
+
+.hero-content h1{
+    font-size:2.8rem;
+}
+
+.about{
+    grid-template-columns:1fr;
+}
+
+nav ul{
+    display:none;
+}
+
+}
+</style>
 </head>
+
 <body>
 
-    <!-- Intestazione / Menu -->
-    <header>
-        <div class="logo">GALBUSERA</div>
-        <nav>
-            <a href="#storia">La Nostra Storia</a>
-            <a href="#prodotti">Prodotti</a>
-            <a href="#contatti">Contatti</a>
-        </nav>
-        <a href="#contatti" class="btn-header">SCRIVICI</a>
-    </header>
+<header>
+    <nav>
+        <div class="logo">Galbusera</div>
+        <ul>
+            <li><a href="#storia">Storia</a></li>
+            <li><a href="#prodotti">Prodotti</a></li>
+            <li><a href="#valori">Valori</a></li>
+            <li><a href="#contatti">Contatti</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <!-- Sezione di Copertina -->
-    <div class="hero">
-        <p>DAL 1938, NEL CUORE DI LECCO</p>
-        <h1>La Bontà è una Tradizione di Famiglia.</h1>
-        <p class="sub">Da ottantacinque anni sforniamo biscotti, cracker e grissini con passione, portando il calore della fornace italiana in ogni casa.</p>
-    </div>
-
-    <!-- Sezione Storia -->
-    <div id="storia" class="section">
-        <h2>La Nostra Storia</h2>
-        <p style="max-width: 800px; margin: 0 auto; color: #555; font-size: 16px;">
-            Fondata a Morbegno nel 1938 da Mario ed Enea Galbusera, la nostra azienda è cresciuta mantenendo intatti i valori dell'artigianalità e della qualità. Scegliamo con cura le migliori materie prime per garantire prodotti sani, genuini e ricchi di sapore.
+<section class="hero">
+    <div class="hero-content">
+        <h1>Tradizione, Gusto e Benessere</h1>
+        <p>
+            Da generazioni, Galbusera porta sulle tavole italiane
+            prodotti da forno di qualità, unendo tradizione,
+            innovazione e attenzione al benessere.
         </p>
+        <a href="#prodotti" class="btn">Scopri i prodotti</a>
     </div>
+</section>
 
-    <!-- Sezione Prodotti con Filtri Interattivi -->
-    <div id="prodotti" class="section">
-        <h2>I Nostri Prodotti</h2>
-        
-        <div class="filter-buttons">
-            <button class="filter-btn active" onclick="filterCategory('all')">Tutti</button>
-            <button class="filter-btn" onclick="filterCategory('biscotti')">Biscotti</button>
-            <button class="filter-btn" onclick="filterCategory('salati')">Cracker & Grissini</button>
-            <button class="filter-btn" onclick="filterCategory('benessere')">Linea Benessere</button>
-        </div>
+<section class="section" id="storia">
+    <h2 class="section-title">La Nostra Storia</h2>
 
-        <div class="products-grid">
-            <div class="product-card" data-category="biscotti">
-                <div class="product-img">🍪</div>
-                <h3>Buonicosi</h3>
-                <p>Biscotti friabili con gocce di cioccolato, perfetti per la colazione di tutta la famiglia.</p>
-            </div>
-            <div class="product-card" data-category="salati">
-                <div class="product-img">🥖</div>
-                <h3>Cracker RisoSuRiso</h3>
-                <p>Leggeri e croccanti cracker con riso soffiato, ideali per uno snack spezza-fame.</p>
-            </div>
-            <div class="product-card" data-category="benessere">
-                <div class="product-img">🌾</div>
-                <h3>Magretti</h3>
-                <p>Biscotti con il 40% di grassi in meno, senza rinunciare al gusto della tradizione.</p>
-            </div>
-            <div class="product-card" data-category="biscotti">
-                <div class="product-img">🍯</div>
-                <h3>Colfiorito</h3>
-                <p>Biscotti integrali con miele millefiori selvatico, ricchi di fibre naturali.</p>
-            </div>
+    <div class="about">
+        <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=1200&q=80" alt="Biscotti">
+
+        <div>
+            <h3 style="font-size:2rem;color:#2f7d32;">
+                Una tradizione italiana
+            </h3>
+
+            <p>
+                Galbusera è sinonimo di qualità e attenzione agli ingredienti.
+                L'azienda ha costruito la propria reputazione offrendo
+                biscotti, cracker e prodotti da forno pensati per il gusto
+                e il benessere delle persone.
+            </p>
+
+            <br>
+
+            <p>
+                Innovazione e ricerca accompagnano da sempre la produzione,
+                mantenendo vivi i valori della tradizione italiana.
+            </p>
         </div>
     </div>
+</section>
 
-    <!-- Sezione Contatti -->
-    <div id="contatti" class="section">
-        <h2>Contattaci</h2>
-        <div class="contact-container">
-            <form onsubmit="event.preventDefault(); alert('Messaggio inviato con successo! Grazie per averci contattato.');">
-                <div class="form-group">
-                    <label for="name">Nome Completo</label>
-                    <input type="text" id="name" required placeholder="Inserisci il tuo nome">
-                </div>
-                <div class="form-group">
-                    <label for="email">Indirizzo Email</label>
-                    <input type="email" id="email" required placeholder="esempio@email.com">
-                </div>
-                <div class="form-group">
-                    <label for="reason">Motivo del Contatto</label>
-                    <select id="reason">
-                        <option>Informazioni Prodotti</option>
-                        <option>Segnalazioni e Suggerimenti</option>
-                        <option>Lavora con Noi</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="message">Messaggio</label>
-                    <textarea id="message" rows="5" required placeholder="Scrivi qui il tuo messaggio..."></textarea>
-                </div>
-                <button type="submit" class="btn-submit">Invia Messaggio</button>
-            </form>
+<section class="section" id="prodotti">
+    <h2 class="section-title">I Nostri Prodotti</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=1200&q=80">
+            <div class="card-content">
+                <h3>Biscotti</h3>
+                <p>Ricette tradizionali con ingredienti selezionati e gusto autentico.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=1200&q=80">
+            <div class="card-content">
+                <h3>Cracker</h3>
+                <p>Perfetti per ogni momento della giornata, leggeri e croccanti.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?auto=format&fit=crop&w=1200&q=80">
+            <div class="card-content">
+                <h3>Linea Benessere</h3>
+                <p>Prodotti pensati per uno stile di vita equilibrato e moderno.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="section stats" id="valori">
+    <div class="stats-grid">
+        <div class="stat">
+            <h2>100+</h2>
+            <p>Anni di esperienza</p>
+        </div>
+
+        <div class="stat">
+            <h2>Qualità</h2>
+            <p>Ingredienti selezionati</p>
+        </div>
+
+        <div class="stat">
+            <h2>Innovazione</h2>
+            <p>Ricerca continua</p>
+        </div>
+
+        <div class="stat">
+            <h2>Benessere</h2>
+            <p>Attenzione al consumatore</p>
         </div>
     </div>
+</section>
 
-    <!-- Piè di pagina -->
-    <footer>
-        <p>&copy; 2026 Galbusera S.p.A. - Tutti i diritti riservati.</p>
-        <p>Sede Legale: Via Segantini, 3 - 23017 Morbegno (SO)</p>
-    </footer>
+<footer id="contatti">
+    <h3>Galbusera</h3>
+    <p>Tradizione italiana e qualità dal cuore della nostra storia.</p>
+    <p style="margin-top:10px;">
+        © 2026 Tutti i diritti riservati
+    </p>
+</footer>
 
-    <!-- Script per far funzionare i filtri -->
-    <script>
-        function filterCategory(category) {
-            // Aggiorna lo stato attivo dei pulsanti
-            const buttons = document.querySelectorAll('.filter-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-
-            // Filtra le schede prodotto
-            const cards = document.querySelectorAll('.product-card');
-            cards.forEach(card => {
-                if (category === 'all' || card.getAttribute('data-category') === category) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-    </script>
 </body>
 </html>
-
